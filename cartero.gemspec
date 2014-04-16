@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Cartero::VERSION
   spec.authors       = ["Adam Dawkins"]
   spec.email         = ["adamdawkins@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Prepare emails for sending}
+  spec.description   = %q{Wraps premailer.dialect.ca}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -20,4 +20,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "turn"
 end
