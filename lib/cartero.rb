@@ -1,5 +1,5 @@
 require_relative "cartero/version"
+require_relative "cartero/document"
 
 module Cartero
-  # Your code goes here...
 end

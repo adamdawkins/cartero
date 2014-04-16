@@ -1,0 +1,13 @@
+The mid season sale continues
+
+Having problems viewing this email? Click here ( http://www.elabs12.com/functions/message_view.html?mid=%%MLM_MID%%&mlid=%%MLM_MLID%%&siteid=%%MLM_SITEID%%&uid=%%MLM_UNIQUEID%% )
+
+Update your subscription preferences ( http://news.newsmintvelvet.co.uk/index.php?m=%%EMAIL_ADDRESS%%&h=%%MLM_UNIQUEID%%&a=preferences )
+
+To unsubscribe to this email please click
+here ( http://news.newsmintvelvet.co.uk/index.php?m=%%EMAIL_ADDRESS%%&h=%%MLM_UNIQUEID%%&a=subscription )
+
+To contact customer services, please
+click here ( http://www.mintvelvet.co.uk/contact-us/content/fcp-content )
+
+© 2014 Mint Velvet
