@@ -25,7 +25,6 @@ module Cartero
         }
       )       
       documents = JSON.parse(response.body)['documents'] 
-      puts documents
       premailer_html_url = documents['html']
       premailer_text_url = documents['txt']
 
