@@ -44,4 +44,15 @@ describe Cartero::Document do
       File.open(File.expand_path(@test_processed_path)).must_be_kind_of File
     end
   end
+
+  describe '#save_processed_text' do
+    before :all do
+      @test_processed_path = 'test/output/new_premailer_test.txt'
+      @doc.save_processed_text @test_processed_path
+    end
+
+    it 'creates a file with the path' do
+      File.open(File.expand_path(@test_processed_path)).must_be_kind_of File
+    end
+  end
 end

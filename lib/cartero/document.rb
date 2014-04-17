@@ -39,7 +39,13 @@ module Cartero
     end
 
     def save_processed_text path
-      # save processed[:html] to path
+      if @processed[:text] == nil
+        premailer
+      end
+      
+      File.open(File.expand_path(path), 'wb') do |f|
+        f.write @processed[:text]
+      end
     end
 
   end
