@@ -8,21 +8,17 @@ module Cartero
     @@premailer_uri = URI.parse('http://premailer.dialect.ca/api/0.1/documents')
     attr_accessor :original_html, :original_path, :processed
 
-    def initialize path
+    def initialize path, options = {}
       @original_html = File.read path
       @original_path = path
       @processed = {}
-      premailer
+      premailer options
     end   
 
-    def premailer
+    def premailer options
+      options[:html] = @original_html
       response = Net::HTTP.post_form(
-        @@premailer_uri,
-        {
-          html: @original_html,
-          adapter: "nokogiri",
-          preserve_styles: false
-        }
+        @@premailer_uri, {options}
       )       
       documents = JSON.parse(response.body)['documents'] 
       premailer_html_url = documents['html']
