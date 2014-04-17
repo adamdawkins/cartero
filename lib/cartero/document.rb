@@ -12,15 +12,20 @@ module Cartero
       @original_html = File.read path
       @original_path = path
       @processed = {}
-      # premailer
+      premailer
     end   
 
     def premailer
       response = Net::HTTP.post_form(
         @@premailer_uri,
-        {html: @original_html}
+        {
+          html: @original_html,
+          adapter: "nokogiri",
+          preserve_styles: false
+        }
       )       
       documents = JSON.parse(response.body)['documents'] 
+      puts documents
       premailer_html_url = documents['html']
       premailer_text_url = documents['txt']
 
@@ -29,20 +34,12 @@ module Cartero
     end
 
     def save_processed_html path
-      if @processed[:html] == nil
-        premailer
-      end
-      
       File.open(File.expand_path(path), 'wb') do |f|
         f.write @processed[:html]
       end
     end
 
     def save_processed_text path
-      if @processed[:text] == nil
-        premailer
-      end
-      
       File.open(File.expand_path(path), 'wb') do |f|
         f.write @processed[:text]
       end

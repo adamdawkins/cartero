@@ -1,7 +1,7 @@
 require_relative '../../test_helper'
 
 describe Cartero::Document do
-  before do
+  before :all do
     @path = File.expand_path 'test/fixtures/31_140311.html'
     @doc = Cartero::Document.new @path
   end
@@ -19,9 +19,6 @@ describe Cartero::Document do
   end
 
   describe '#premailer' do
-    before :all do
-      @doc.premailer
-    end
 
     it 'sets processed[:html] to the premailer HTML' do
       #@doc.processed[:html].must_equal File.read File.expand_path('test/fixtures/31_140311-premailer.html')
