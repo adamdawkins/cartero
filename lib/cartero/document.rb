@@ -22,14 +22,20 @@ module Cartero
       )       
       documents = JSON.parse(response.body)['documents'] 
       premailer_html_url = documents['html']
-      premailer_text_url = documents['text']
+      premailer_text_url = documents['txt']
 
       @processed[:html] = open(premailer_html_url).read
-      #@processed[:text] = open(premailer_text_url).read
+      @processed[:text] = open(premailer_text_url).read
     end
 
     def save_processed_html path
-      # save processed[:html] to path
+      if @processed[:html] == nil
+        premailer
+      end
+      
+      File.open(File.expand_path(path), 'wb') do |f|
+        f.write @processed[:html]
+      end
     end
 
     def save_processed_text path

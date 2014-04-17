@@ -22,13 +22,26 @@ describe Cartero::Document do
     before :all do
       @doc.premailer
     end
+
     it 'sets processed[:html] to the premailer HTML' do
       #@doc.processed[:html].must_equal File.read File.expand_path('test/fixtures/31_140311-premailer.html')
       @doc.processed[:html].class.name.must_equal 'String'
     end  
+
     it 'sets processed[:text] to the premailer text version' do
       #@doc.processed[:text].must_equal File.read File.expand_path('test/fixtures/31_140311-text.txt')
        @doc.processed[:text].class.name.must_equal 'String'
+    end
+  end
+
+  describe '#save_processed_html' do
+    before :all do
+      @test_processed_path = 'test/output/new_premailer_test.html'
+      @doc.save_processed_html @test_processed_path
+    end
+
+    it 'creates a file with the path' do
+      File.open(File.expand_path(@test_processed_path)).must_be_kind_of File
     end
   end
 end
