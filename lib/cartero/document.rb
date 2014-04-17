@@ -17,9 +17,7 @@ module Cartero
 
     def premailer options
       options[:html] = @original_html
-      response = Net::HTTP.post_form(
-        @@premailer_uri, {options}
-      )       
+      response = Net::HTTP.post_form( @@premailer_uri, options)       
       documents = JSON.parse(response.body)['documents'] 
       premailer_html_url = documents['html']
       premailer_text_url = documents['txt']
