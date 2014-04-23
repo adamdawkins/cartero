@@ -22,8 +22,11 @@ module Cartero
       premailer_html_url = documents['html']
       premailer_text_url = documents['txt']
 
-      @processed[:html] = open(premailer_html_url).read
-      @processed[:text] = open(premailer_text_url).read
+      processed_html = open(premailer_html_url).read.gsub('&amp;amp;', '&amp;')
+      processed_text = open(premailer_text_url).read.gsub('&amp;amp;', '&amp;').gsub('&amp;', '&')
+
+      @processed[:html] = processed_html
+      @processed[:text] = processed_text
     end
 
     def save_processed_html path
