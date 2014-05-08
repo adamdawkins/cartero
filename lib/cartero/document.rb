@@ -26,7 +26,7 @@ module Cartero
       processed_html = open(premailer_html_url).read.gsub('&amp;amp;', '&amp;')
 
       if options[:base_url]
-        processed_html.gsub!(/src="(?!http)/, "src=\"#{options[:base_url]}/")
+        processed_html.gsub!(/src="(?!http)/, "src=\"#{options[:base_url]}")
       end
 
       processed_text = open(premailer_text_url).read.gsub('&amp;amp;', '&amp;').gsub('&amp;', '&')

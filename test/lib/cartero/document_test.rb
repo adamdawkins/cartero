@@ -5,7 +5,7 @@ describe Cartero::Document do
     @path = File.expand_path 'test/fixtures/31_140311.html'
     @doc = Cartero::Document.new @path, {
       link_query_string: 'utm_campaign=test&something-else=another-thing',
-      base_url: 'http://google.com'
+      base_url: 'http://google.com/'
     }
   end
 
